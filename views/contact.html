@@ -1,0 +1,18 @@
+<div class="container" ng-init="getContactById()">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card" id="contact">
+                <h1 class="text-center">Contact Details</h1>
+                <ul class="pt-5">
+                    <li><span class="fw-bold ml-3">ID: </span>{{contact.id}}</li><hr>
+                    <li><span class="fw-bold ml-3">Name: </span>{{contact.name}}</li><hr>
+                    <li><span class="fw-bold ml-3">Phone: </span>{{contact.phone}}</li><hr>
+                    <li><span class="fw-bold ml-3">Address: </span> <span ng-if="contact.address===''")>Unknown</span>{{contact.address}}</li><hr>
+                    <li><span class="fw-bold ml-3">Registration Date: </span>{{contact.created_at | date:"dd.MM.yyyy."}}</li>
+                </ul>
+            </div>
+            <a  class="btn btn-info mt-3" href="/"><i class="fas fa-backward"></i> Contact List</a>
+        </div>
+    </div>
+</div>
+   

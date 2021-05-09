@@ -1,0 +1,32 @@
+<div class="container" ng-init="getContactById()">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card" id="contact" ng-init="getContactById()">
+                <h1 class="text-center">Edit Contact Details</h1>
+                <form name="editContactForm" ng-submit="updateContact()" novalidate>
+                    <div class="mb-2">
+                        <label>Contact ID:</label>
+                        <input type="text" class="form-control" autocomplete="off" ng-model="contact.id" disabled>
+                    </div>
+                    <div class="mt-2">
+                        <label>Name:</label>
+                        <input ng-required="true" type="text" class="form-control" autocomplete="off" ng-model="contact.name">
+                    </div>
+                    <div ng-show="editContactForm.name.$touched && editContactForm.name.$invalid" class="float-end mb-2 mt-0 form-text invalid-info"><small>Please enter name</small></div>
+                    <label>Phone Number:</label>
+                    <div class="input-group mt-2">
+                        <span class="input-group-text" id="basic-addon1">+387</span>
+                        <input ng-required="true" ng-minlength="8" ng-maxlength="9" ng-pattern="/^\d+$/" type="text" name="phone" placeholder="Phone Number" class="form-control" ng-model="contact.phone">
+                    </div>
+                    <div ng-show="editContactForm.phone.$touched && (editContactForm.phone.$invalid || editContactForm.phone.$error.pattern)" class="float-end mb-2 mt-0 form-text invalid-info"><small>Please enter valid phone number</small></div>
+                    <label>Address:</label>
+                    <div class="my-2">
+                        <input type="text" class="form-control" ng-model="contact.address">
+                    </div>
+                    <input type="submit" ng-disabled=!editContactForm.$valid class="btn w-100 btn-info" value="Edit Contact Details"></input>
+                </form>
+            </div>
+            <a  class="btn btn-info mt-3" href="/"><i class="fas fa-backward"></i> Cancel</a>
+        </div>
+    </div>
+</div> 
