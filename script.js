@@ -23,24 +23,6 @@ app.config(['$routeProvider', function($routeProvider) {
 app.controller('ContactsController', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams) {
 
 
-
-    $scope.messages = {
-        show: false,
-        info : ''
-    }
-
-    $scope.change = function(message) {
-        $scope.messages.show = true;
-        $scope.messages.info = message;
-        console.log('from change', $scope.messages.show, $scope.messages.info);
-    };
-
-  /*   $scope.closeMsg = function() {
-        $scope.messages.show = false;
-        $scope.messages.info = '';
-        console.log('close msg');
-    } */
-
     //Toggle button for showing and hiding form for adding new contact to database
     $scope.addNewContactForm = false;
     $scope.toggleAddNewContactForm = function() {
@@ -51,15 +33,6 @@ app.controller('ContactsController', ['$scope', '$http', '$location', '$routePar
         }
     }
 
-    /* $scope.getContactById = function($id) {
-        $scope.contact = null;
-        $scope.contacts.array.forEach(contact => {
-            if(contact.id == $id) {
-                $scope.contact = contact
-            }
-        });
-        return $scope.contact;
-    } */
 
     $scope.getAllContacts = function() {
         $http.get('http://localhost/newapp/api/contact/readAll.php')
