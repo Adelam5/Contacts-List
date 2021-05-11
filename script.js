@@ -26,11 +26,7 @@ app.controller('ContactsController', ['$scope', '$http', '$location', '$routePar
     //Toggle button for showing and hiding form for adding new contact to database
     $scope.addNewContactForm = false;
     $scope.toggleAddNewContactForm = function() {
-        if($scope.addNewContactForm) {
-            $scope.addNewContactForm = false;
-        } else {
-            $scope.addNewContactForm = true;
-        }
+        $scope.addNewContactForm = !$scope.addNewContactForm;
     }
 
 
@@ -90,7 +86,6 @@ app.controller('ContactsController', ['$scope', '$http', '$location', '$routePar
         })
         .then(function () {
            console.log('Contact Updated');
-           $scope.messages.info = "Contact updated";
            $location.path('/');
         });
     }
